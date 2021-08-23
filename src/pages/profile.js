@@ -12,6 +12,8 @@ export default function Profile(){
     const history = useHistory()
 
     useEffect(()=> {
+        document.title= `${username}`
+
       async function checkUserExistsToLoadProfile(){
           const doesUserExist = await getUserByUsername(username)
           if(!doesUserExist){
