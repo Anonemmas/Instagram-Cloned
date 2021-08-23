@@ -37,7 +37,7 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }){
                                 handleToggleLiked((toggleLiked) => !toggleLiked);
                             }
                         }}
-                        className={`mr-4 flex items-center justify-center select-none cursor-pointer focus:outline-none ${
+                        className={`mr-4 flex items-center justify-center select-none cursor-pointer active:outline-none focus:outline-none ${
                             toggleLiked ? 'fill-current text-red-600' : 'text-gray-400'
                         }`}
                         >
@@ -50,7 +50,7 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }){
                                 handleFocus();
                             }
                         }}
-                        className={"flex items-center justify-center select-none cursor-pointer focus:outline-none text-gray-600"}
+                        className={"flex items-center justify-center select-none cursor-pointer active:outline-none focus:outline-none text-gray-600"}
                         >
                             {Comment}
                     </button>

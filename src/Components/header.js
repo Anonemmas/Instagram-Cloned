@@ -22,6 +22,13 @@ export default function Header(props){
                         />
                     </Link>
                 </div>
+                <div className="search">
+                    <input 
+                        className="border rounded-md border-gray-300 text-center text-sm px-8 py-1 focus:outline-none"
+                        type="text"
+                        placeholder="Search"
+                    />
+                </div>
                 {user ? (
                     <div className="flex justify-around items-center md:w-1/6 fixed md:relative bottom-0 left-0 w-screen bg-white
                     h-12 md:h-8">
