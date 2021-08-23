@@ -1,0 +1,229 @@
+:root {
+  --blue: rgba(0,149,246,.8);
+}
+
+.Login-Container{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: #f7f7f7;
+}
+.login-container-left{
+  width: 42%;
+  margin-top: 3vh;
+}
+.login-container-right{
+  display: flex;
+  width: 29%;
+  margin: 12vh 10% auto 0;
+  flex-direction: column;
+}
+/* ---------------------------------Login Container Left---------------------------------------- */
+
+.image-holder{
+  height: 96%;
+  width: 120%;
+}
+.Login-Container img{
+  height: 100%;
+  width: 100%;
+}
+
+/* ---------------------------------Login Container Right---------------------------------------- */
+.form-holder{
+  display: flex;
+  padding-bottom: 5vh;
+  align-items: center;
+  border: 0.5px solid #b6b6b685;
+  flex-direction: column;
+  background: #fff;
+}
+.form-holder form{
+  display: flex;
+  flex-direction: column;
+  width: 74%;
+  margin: 0 auto;
+}
+.form-holder form img{
+  height: 4.5rem;
+  width: 11rem;
+  align-self: center;
+  margin: 15px 0 30px 0;
+}
+.form-holder form input{
+  border: 0.5px solid #b6b6b685;
+  padding: 10px;
+  font-size: 12px;
+  background: #f7f7f7;
+}
+.password{
+  width: 100%;
+}
+.show-button{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-0.5vw, -50%);
+}
+.form-holder form button#login{
+  background: rgba(0,149,246,.8);
+  color: #fff;
+  margin-top: 5px;
+  padding: 4px 0;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+.or-section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  margin: 12px auto;
+}
+.or-section .Or{
+  font-size: 1rem;
+  color: #b6b6b6;
+  font-weight: 500;
+}
+.or-section .left-line, .right-line{
+  background: #b6b6b6c2;
+  height: 1px;
+  width: 7rem;
+}
+.form-holder a#to-facebook{
+  display: inline-block;
+  margin-top: 14px;
+  color: #385185;
+}
+.form-holder a#to-facebook #text{
+  display: inline-block;
+  margin-left:5px;
+}
+.form-holder a#forgot-password{
+  font-size: 0.7rem;
+  display: inline-block;
+  margin-top: 20px;
+}
+p#error{
+  font-size: 0.5rem;
+    color: red;
+}
+.no-account{
+  border: 0.5px solid #b6b6b685;
+  margin-top: 2vh;
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+}
+.no-account p,a{
+  display: inline-block;
+  margin-right: 2px;
+}
+.no-account a{
+  color: #0095f6;
+  font-weight: 500;
+}
+.get-the-app{
+  text-align: center;
+  margin-top: 4vh;
+  margin-bottom: 30px;
+}
+.get-the-app p{
+  margin-bottom: 20px;
+}
+.get-the-app img{
+  height: 3rem;
+  width: 12vw;
+  display: inline-block;
+}
+.store-buttons{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* --------------------------------------------SignUp Page-------------------------------------- */
+
+.sign-up-form{
+  display: flex;
+  flex-direction: column;
+  width: 28%;
+  margin: 30px auto 0 auto;
+}
+
+p#intro-signup{
+  margin: -20px auto 20px auto;
+  text-align: center;
+  color: #8e8e8e;
+  font-weight: 500;
+}
+
+p#agree-terms{
+  font-size: 0.7rem;
+  color: #8e8e8e;
+  text-align: center;
+  display: inline-block;
+  width: 65%;
+  margin-top: 8px;
+}
+
+/*--------------------------------- 404 Page ------------------------------------------------------*/
+
+
+.not-found-container .Login{
+  background: var(--blue);
+}
+
+/* --------------------------------- Dashboard Page ---------------------------------------------*/
+.dashboard-body{
+  grid-template-columns: 2fr 1fr;
+  justify-items: center;
+}
+
+#photo{
+  height: 300px;
+}
+
+@media only screen and (max-width: 767px) {
+  #photo{
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .login-container-right{
+    display: flex;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .form-holder{
+    border: none;
+  }
+  .no-account{
+    border: none;
+  }
+  .form-holder form{
+    width: 80%;
+  }
+  .login{
+    background-color: white!important;
+  }
+  .sign-up-form{
+    width: 80%;
+  }
+  .get-the-app{
+    display: none;
+  }
+}
