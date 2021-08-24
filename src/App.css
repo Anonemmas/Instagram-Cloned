@@ -200,13 +200,16 @@ p#agree-terms{
     z-index: 1;
 }
 
-@media only screen and (max-width: 767px) {
-  #photo{
-    height: 200px;
+@media only screen and (min-width: 768px) {
+  .searchbar{
+    opacity: 1;
   }
 }
 
 @media only screen and (max-width: 767px) {
+  #photo{
+    height: 200px;
+  }
   .login-container-right{
     display: flex;
     width: 100%;
@@ -240,4 +243,8 @@ p#agree-terms{
 .searchbar:focus{
   opacity: 1;
   transition: ease-in-out;
+}
+
+.renderedList{
+  max-height: 14rem;
 }
