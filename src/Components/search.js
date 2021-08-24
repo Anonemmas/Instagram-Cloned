@@ -20,7 +20,7 @@ export default function Search({searchRef}){
 
     const handleFilteredProfiles = ({target}) => {
         const searchWord = target.value
-        const newFilter = profiles.filter(value => value.username.includes(searchWord.toLocaleLowerCase()))
+        const newFilter = profiles.filter(value => value.fullName.toLocaleLowerCase().includes(searchWord.toLocaleLowerCase()))
 
         if(searchWord === ''){
             setFilteredProfiles([])
@@ -31,6 +31,7 @@ export default function Search({searchRef}){
         setSearchInput(searchWord)
     }
 
+    console.log(searchRef)
     return (
         <div className="search mr-2  md:pr-0 md:block relative">
             <div>
