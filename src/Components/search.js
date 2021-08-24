@@ -36,7 +36,8 @@ export default function Search({searchRef}){
             <div>
                 <input 
                     ref={searchRef}
-                    className="searchbar border opacity-0 focus:opacity-10 md:block rounded-md border-gray-300 text-center text-sm px-8 py-1 focus:outline-none"
+                    className="searchbar border opacity-0 focus:opacity-10 md:block rounded-md
+                     border-gray-300 text-center text-sm md:px-8 py-1 focus:outline-none"
                     type="text"
                     placeholder="Search"
                     onChange={handleFilteredProfiles}
