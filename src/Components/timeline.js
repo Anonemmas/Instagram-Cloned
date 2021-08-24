@@ -5,7 +5,7 @@ import useFollowedUsersPhotos from "../hooks/use-followed-users-photos"
 
 export default function Timeline(props){
     const {photos} = useFollowedUsersPhotos()
-    console.log(photos)
+    // console.log(photos)
     return(
         <div className="TimeLine w-full">
             {!photos ? (

@@ -153,3 +153,18 @@ export async function toggleFollow(
     await updateUserFollowing(activeUserDocId, profileId, isFollowingProfile);
     await updateFollowedUserFollowers(profileDocId, followingUserId, isFollowingProfile);
 }
+
+export async function getAllUsers(){
+    const result = await firebase
+    .firestore()
+    .collection('users')
+    .get()
+
+    const users = result.docs.map(user => ({
+        ...user.data(),
+        docId: user.id
+    }))
+    
+    return users
+    
+}

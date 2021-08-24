@@ -1,14 +1,21 @@
-import React, { useContext } from "react"
+import React, { useContext, useRef } from "react"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 import { FirebaseContext } from "../context/Firebase"
 import Drizzy from "../images/Drizzy.jpg"
 import { userContext } from "../context/userContext"
+import Search from "./search"
+import SearchIcon from '@material-ui/icons/Search'
 
 export default function Header(props){
     const {firebase} = useContext(FirebaseContext)
     const {user} = useContext(userContext)
     // console.log(user.displayName)
+    const searchRef = useRef(null)
+
+    const handleFocus = () => {
+        searchRef.current.focus()
+    }
     
     return (
         <div className="header h-16 border-b bg-white fixed w-full top-0 z-10">
@@ -22,13 +29,7 @@ export default function Header(props){
                         />
                     </Link>
                 </div>
-                <div className="search">
-                    <input 
-                        className="border rounded-md border-gray-300 text-center text-sm px-8 py-1 focus:outline-none"
-                        type="text"
-                        placeholder="Search"
-                    />
-                </div>
+                <Search searchRef={searchRef}/>
                 {user ? (
                     <div className="flex justify-around items-center md:w-1/6 fixed md:relative bottom-0 left-0 w-screen bg-white
                     h-12 md:h-8">
@@ -46,6 +47,12 @@ export default function Header(props){
                             />
                             </svg>
                         </Link>
+                        <button 
+                            className="md:hidden"
+                            onClick={handleFocus}
+                        >
+                            <SearchIcon />
+                        </button>
                         <Link 
                         onClick = {() => (
                             firebase.auth().signOut()
@@ -70,9 +77,9 @@ export default function Header(props){
                         </Link>
                         <Link to={`/p/${user.displayName}`} className="h-6">
                             <img 
-                            className="rounded-full h-full"
-                            src={Drizzy}
-                            alt="Drizzy-pic"
+                                className="rounded-full h-full"
+                                src={Drizzy}
+                                alt="Drizzy-pic"
                             />
                         </Link>
                     </div>

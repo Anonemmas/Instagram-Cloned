@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import Header from "../Components/header"
-import * as ROUTES from "../constants/routes"
+// import * as ROUTES from "../constants/routes"
 
 
 export default function NotFound(){

@@ -191,6 +191,15 @@ p#agree-terms{
   height: 300px;
 }
 
+.arrow{
+    background: #fff;
+    position: absolute; 
+    transform: rotate(45deg); 
+    top: -5px;
+    left: 50%;
+    z-index: 1;
+}
+
 @media only screen and (max-width: 767px) {
   #photo{
     height: 200px;
@@ -226,4 +235,9 @@ p#agree-terms{
   .get-the-app{
     display: none;
   }
+}
+
+.searchbar:focus{
+  opacity: 1;
+  transition: ease-in-out;
 }

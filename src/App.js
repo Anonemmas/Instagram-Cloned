@@ -1,12 +1,12 @@
-import React, { lazy, Suspense, useContext } from 'react';
+import React, { lazy, Suspense} from 'react';
 import "./App.css"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import * as ROUTES from "./constants/routes"
 import { UserContextProvider } from './context/userContext';
-import IsUserLoggedIn from './helpers/is-user-logged-in';
+// import IsUserLoggedIn from './helpers/is-user-logged-in';
 import useAuthListener from './hooks/use-auth-listener';
 import ProtectedRoute from './helpers/protected-route';
-import { log } from 'async';
+// import { log } from 'async';
 
 
 const Dashboard = lazy(() => import ('./pages/dashboard'));

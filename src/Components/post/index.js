@@ -1,6 +1,6 @@
 import React, {useRef} from "react"
 import Actions from "./actions"
-import AddComment from "./add-comment"
+// import AddComment from "./add-comment"
 import Footer from "./footer"
 import Header from "./header"
 import Image from "./image"
@@ -11,7 +11,7 @@ export default function Post({content}){
     const commentInput = useRef()
 
     const handleFocus = () => commentInput.current.focus()
-    console.log(content)
+    // console.log(content)
 
     return (
         <div className="rounded col-span-4 border border-gray-100 md:mb-16 bg-white">
