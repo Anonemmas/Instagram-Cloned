@@ -13,6 +13,7 @@ const Dashboard = lazy(() => import ('./pages/dashboard'));
 const Login = lazy(() => import ('./pages/login'));
 const SignUp = lazy(() => import ('./pages/signup'));
 const Profile = lazy(() => import ('./pages/profile'));
+const PortalPage = lazy(() => import ('./pages/portal'));
 const NotFound = lazy(() => import ('./pages/not-found'));
 
 
@@ -35,8 +36,12 @@ export default function App() {
                             <Dashboard />
                         </ProtectedRoute>
                         
-                        <Route path={ROUTES.PROFILE}>
+                        <Route path={ROUTES.PROFILE} exact>
                             <Profile />
+                        </Route>
+
+                        <Route path={ROUTES.PORTAL} exact>
+                            <PortalPage />
                         </Route>
 
                         <Route >

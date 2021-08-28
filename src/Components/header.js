@@ -10,7 +10,7 @@ import SearchIcon from '@material-ui/icons/Search'
 export default function Header(props){
     const {firebase} = useContext(FirebaseContext)
     const {user} = useContext(userContext)
-    // console.log(user.displayName)
+    // console.log(user.uid)
     const searchRef = useRef(null)
 
     const handleFocus = () => {

@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 import Skeleton from "react-loading-skeleton"
 
 // future task: add onhover with the comments length & add the likes
@@ -6,7 +7,6 @@ import Skeleton from "react-loading-skeleton"
 
 
 export default function Photos({photos}){
-    console.log(photos)
     return (
         <div className="border-t border-gray mt-12 pt-4">
             <div className="grid grid-cols-3 gap-1 md:gap-8 mt-4 mb-12">
@@ -18,9 +18,11 @@ export default function Photos({photos}){
                         </>
                     ) : photos && photos.length > 0 ? (
                         photos.map(photo => (
-                            <div id="photo" key={photo.docId} className="relative group">
-                                <img className="h-full object-cover" src={photo.imageSrc} alt={photo.caption} />
-                            </div>
+                            <Link to={`/posts/${photo.photoId}`}>
+                                <div id="photo" key={photo.docId} className="relative group">
+                                    <img className="h-full object-cover" src={photo.imageSrc} alt={photo.caption} />
+                                </div>
+                            </Link>
                         ))
                     ) : null
                 }

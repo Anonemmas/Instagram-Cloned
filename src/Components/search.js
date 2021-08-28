@@ -8,8 +8,6 @@ export default function Search({searchRef}){
     const [filteredProfiles, setFilteredProfiles] = useState([])
     const [searchInput, setSearchInput] = useState("")
 
-    console.log(profiles)
-
     useEffect(() => {
         async function getUsersForSearch(){
             const response = await getAllUsers()
@@ -31,7 +29,6 @@ export default function Search({searchRef}){
         setSearchInput(searchWord)
     }
 
-    console.log(searchRef)
     return (
         <div className="search mr-2  md:pr-0 md:block relative">
             <div>

@@ -122,7 +122,7 @@ export async function getUserIdByUsername(username){
     const [{userId = null}] = result.docs.map(item => ({
         ...item.data()
     }))
-
+    
     return userId
 }
 
@@ -164,7 +164,34 @@ export async function getAllUsers(){
         ...user.data(),
         docId: user.id
     }))
-    
+
     return users
     
+}
+
+export async function getPostByPostId(photoId){
+    const result = await firebase
+    .firestore()
+    .collection('photos')
+    .where("photoId", '==', photoId)
+    .get()
+
+    const photo = result.docs.map(item => ({
+        ...item.data(),
+        docId: item.docId
+    }))
+
+    return photo
+}
+
+export async function doesUserhaveFollowing(userId){
+    const result = await getUserByUserId(userId)
+
+    const user = result.docs.map(item => ({
+        ...item.data(),
+        docId: item.id
+    }))
+
+    console.log(user.following)
+
 }
