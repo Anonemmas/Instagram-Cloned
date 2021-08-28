@@ -41,7 +41,7 @@ export default function Timeline(props){
                 </>
             ) : photos && photos.length > 0 ? (
                 photos.map((content) => <Post key={content.docId} content={content} />)
-            ) :  <p className="text-center text-2xl py-8">The people you follow have no Photos yet!</p>}
+            ) :  <p className="text-center text-2xl py-8 px-4">The people you follow have no Photos yet!</p>}
         </div>
     )
 }

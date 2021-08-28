@@ -178,7 +178,7 @@ export async function getPostByPostId(photoId){
 
     const photo = result.docs.map(item => ({
         ...item.data(),
-        docId: item.docId
+        docId: item.id
     }))
 
     return photo
@@ -187,11 +187,11 @@ export async function getPostByPostId(photoId){
 export async function doesUserhaveFollowing(userId){
     const result = await getUserByUserId(userId)
 
-    const user = result.docs.map(item => ({
+    const [{following}] = result.docs.map(item => ({
         ...item.data(),
         docId: item.id
     }))
 
-    console.log(user.following)
+    return !! following.length
 
 }
