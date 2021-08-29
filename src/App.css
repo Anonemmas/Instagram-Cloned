@@ -238,6 +238,10 @@ p#agree-terms{
   .get-the-app{
     display: none;
   }
+  .likes:hover{
+    opacity: 1;
+    transition: ease-in-out;
+  }
 }
 
 .searchbar:focus{
@@ -255,12 +259,8 @@ p#agree-terms{
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  z-index: 50;
   background: rgba(0, 0, 0, .2);
   color: #fff;
 }
 
-.likes:hover{
-  opacity: 1;
-  transition: ease;
-}
+

@@ -9,7 +9,7 @@ export default function Timeline(props){
     const {user:{uid: userId = ''}} = useContext(userContext)
     const {photos} = useFollowedUsersPhotos()
     const [hasFollowing, setHasFollowing] = useState(true)
-    // console.log(user)
+    
 
     useEffect(() => {
         async function isUserFollowingAny(){
@@ -26,9 +26,7 @@ export default function Timeline(props){
         isUserFollowingAny()
  
     })
-    
-    console.log(hasFollowing)
-    
+
     return(
         <div className="TimeLine w-full overflow-hidden">
             {!hasFollowing ? (
