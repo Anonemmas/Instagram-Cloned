@@ -14,10 +14,11 @@ export default function Header({photo:{userId = ''}}){
             setUsername(username)
            }
        } 
-       if(userId){
         getUsername()
-        }
+
     }, [userId])
+
+    // console.log(username)
 
     return (
         <div className="h-20 border-b flex items-center">

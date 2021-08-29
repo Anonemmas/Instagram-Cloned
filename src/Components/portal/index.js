@@ -5,13 +5,24 @@ import Photo from "./Photo"
 import Actions from "../post/actions"
 import Comments from "../post/comments"
 import Footer from "../post/footer"
+import { getUserByUserId } from "../../services/Firebase"
+import Skeleton from "react-loading-skeleton"
 
 export default function Portal({photo}){
+    const [username, setUsername] = useState(null)
     const [userLikedPhoto, setUserLikedPhoto] = useState(null)
     const {user : {uid: userId = ''}} = useContext(userContext)
     const commentInput = useRef()
 
     const handleFocus = () => commentInput.current.focus()
+
+    useEffect(() => {
+        async function getUsername(){
+            const [{username = ''}] = await getUserByUserId(photo.userId)
+                setUsername(username)
+        }
+        getUsername()
+    })
 
     useEffect(() => {
         function doesUserLikePhoto() {
@@ -24,6 +35,10 @@ export default function Portal({photo}){
         }
         doesUserLikePhoto()
     })
+
+    
+
+    console.log(username)
 
     return (
         <div className="portal">
@@ -38,7 +53,9 @@ export default function Portal({photo}){
                         handleFocus={handleFocus}
                     />
                 ): null}
-                <Footer username={photo.username} caption={photo.caption}/>
+                {username ? (
+                <Footer username={username} caption={photo.caption}/>
+                ) : <Skeleton style={{marginLeft: "1rem"}} count={1} width={300} height={20}/>}
                 <Comments 
                     docId={photo.docId}
                     comments={photo.comments}

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHeart, faComment} from "@fortawesome/free-solid-svg-icons";
 
 export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }){
-    console.log(likedPhoto)
     const [toggleLiked, setToggleLiked] = useState(likedPhoto);
     const [likes, setLikes] = useState(totalLikes);
     const { firebase, FieldValue } = useContext(FirebaseContext);

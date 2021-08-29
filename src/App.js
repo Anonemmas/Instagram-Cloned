@@ -6,7 +6,7 @@ import { UserContextProvider } from './context/userContext';
 // import IsUserLoggedIn from './helpers/is-user-logged-in';
 import useAuthListener from './hooks/use-auth-listener';
 import ProtectedRoute from './helpers/protected-route';
-// import { log } from 'async';
+import Loading from "./images/loading.png"
 
 
 const Dashboard = lazy(() => import ('./pages/dashboard'));
@@ -22,7 +22,10 @@ export default function App() {
     return (
         <UserContextProvider>
             <Router>
-                <Suspense fallback={<p>Loading...</p>}>
+                <Suspense fallback={
+                    <div className="w-screen h-screen flex items-center justify-center">
+                        <img className="h-16 w-16" src={Loading} alt="Loading"/>
+                    </div>}>
                     <Switch>
                         <Route path={ROUTES.LOGIN}>
                             <Login />
