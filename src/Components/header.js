@@ -32,7 +32,7 @@ export default function Header(props){
                 <Search searchRef={searchRef}/>
                 {user ? (
                     <div className="flex justify-around items-center md:w-1/6 fixed md:relative bottom-0 left-0 w-screen bg-white
-                    h-12 md:h-8">
+                    h-12 md:h-8 border-t md:border-t-0">
                         <Link to={ROUTES.DASHBOARD}>
                             <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
