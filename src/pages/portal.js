@@ -38,7 +38,7 @@ export default function PortalPage(){
     return (
         <>
             <Header />
-            <div className="PortalPage pt-16">
+            <div className="PortalPage pt-16 pb-16">
                 {photo && photo.docId ?
                 <Portal photo={photo}/> : (
                 <>
