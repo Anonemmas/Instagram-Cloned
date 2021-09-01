@@ -20,7 +20,7 @@ export default function Footer({username, caption}){
             {caption.length > 43 ? (
                 <>
                     <span>{!on ? truncate(caption) : caption}</span>
-                    <button onClick={ToggleTextLength} className="focus:outline-none ml-1 text-blue-500">
+                    <button onClick={ToggleTextLength} className="focus:outline-none ml-1 text-blue-600">
                         {on ? "... see less" : "... see more"}
                     </button>
                 </>

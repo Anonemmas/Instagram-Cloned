@@ -224,6 +224,9 @@ p#agree-terms{
   #photo{
     height: 150px;
   }
+  .singlePhoto{
+    height: 300px;
+  }
   .post{
     height: 300px;
   }
