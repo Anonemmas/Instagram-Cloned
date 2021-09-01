@@ -2,12 +2,11 @@ import React, {useEffect, useState} from "react"
 import Portal from "../Components/portal"
 import Header from "../Components/header"
 import { useParams, useHistory } from "react-router-dom"
-import {getPostByPostId, getUserByUserId} from "../services/Firebase"
+import {getPostByPostId} from "../services/Firebase"
 import * as ROUTES from "../constants/routes"
 import Skeleton from "react-loading-skeleton"
 
 export default function PortalPage(){
-    const [username, setUsername] = useState("Instagram")
     const [photo, setPhoto] = useState({})
     const [postExists, setPostExists] = useState(null)
     const {photoId} = useParams()
@@ -39,7 +38,7 @@ export default function PortalPage(){
         <>
             <Header />
             <div className="PortalPage pt-16">
-                {photo && photo.docId ?
+                {photo && photo.docId && postExists ?
                 <Portal photo={photo}/> : (
                 <>
                 <Skeleton count={1} width="100%" height="100vh"/>

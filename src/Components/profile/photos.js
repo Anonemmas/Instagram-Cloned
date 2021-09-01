@@ -23,8 +23,8 @@ export default function Photos({photos}){
                         </>
                     ) : photos && photos.length > 0 ? (
                         photos.map(photo => (
-                            <Link to={`/posts/${photo.photoId}`}>
-                                <div id="photo" key={photo.docId} className="relative group">
+                            <Link  key={photo.docId} to={`/posts/${photo.photoId}`}>
+                                <div id="photo" className="relative group">
                                     <img className="h-full object-cover" src={photo.imageSrc} alt={photo.caption} />
                                     <div className="likes h-full w-full flex items-center justify-center">
                                         <div className="w-3/6 flex justify-around">

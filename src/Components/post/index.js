@@ -11,7 +11,6 @@ export default function Post({content}){
     const commentInput = useRef()
 
     const handleFocus = () => commentInput.current.focus()
-    console.log(content.userLikedPhoto)
 
     return (
         <div className="rounded col-span-4 border border-gray-100 md:mb-16 bg-white">

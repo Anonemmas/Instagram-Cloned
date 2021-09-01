@@ -1,10 +1,30 @@
-import React from "react"
+import React, {useState} from "react"
 
-export default function Footer( {username, caption}){
+export default function Footer({username, caption}){
+    const [on,setOn] = useState(false)  
+
+    const truncate = (input) => {
+        if (input.length > 43) {
+           return input.substring(0, 43);
+        }
+        return input;
+     };
+
+     const ToggleTextLength = () => {
+        setOn(prevOn => !prevOn)
+     }
+
     return (
-        <div className="p-4 pt-2 pb-0">
+        <div style={{maxHeight: "56px", overflow: "auto"}} className="p-4 pt-2 pb-0">
             <span className="mr-1 font-bold">{username}</span>
-            <span>{caption}</span>
+            {caption.length > 43 ? (
+                <>
+                    <span>{!on ? truncate(caption) : caption}</span>
+                    <button onClick={ToggleTextLength} className="focus:outline-none ml-1 text-blue-500">
+                        {on ? "... see less" : "... see more"}
+                    </button>
+                </>
+            ): <span>{caption}</span>}         
         </div>
     )
 }

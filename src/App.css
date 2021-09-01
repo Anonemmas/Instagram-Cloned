@@ -215,11 +215,17 @@ p#agree-terms{
     max-width: 1184px;
     min-width: 1200px;
   }
+  .post{
+    height: 500px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
   #photo{
-    height: 200px;
+    height: 150px;
+  }
+  .post{
+    height: 300px;
   }
   .login-container-right{
     display: flex;

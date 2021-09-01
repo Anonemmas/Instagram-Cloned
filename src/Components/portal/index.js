@@ -36,10 +36,6 @@ export default function Portal({photo}){
         doesUserLikePhoto()
     })
 
-    
-
-    console.log(username)
-
     return (
         <>
             <div className="portal md:hidden mb-12">
@@ -75,7 +71,7 @@ export default function Portal({photo}){
                         <Header photo={photo}/>
                         {username ? (
                         <Footer username={username} caption={photo.caption}/>
-                        ) : <Skeleton style={{marginLeft: "1rem"}} count={1} width={300} height={20}/>}
+                        ) : <Skeleton style={{marginLeft: "1rem"}} count={1} width={200} height={20}/>}
                         {userLikedPhoto !== null ? (
                         <Actions 
                             docId={photo.docId}

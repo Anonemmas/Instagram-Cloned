@@ -14,6 +14,7 @@ export default function Comments({docId, comments: allComments, posted, commentI
                     </p>
                 )}
                 {comments.slice(0, 3).map(item => (
+                    item.displayName ? 
                     <p key={`${item.comment}-${item.displayName}`} className="mb-1">
                         <Link to={`/p/${item.displayName}`}>
                             <span className="mr-1 font-bold">
@@ -22,6 +23,7 @@ export default function Comments({docId, comments: allComments, posted, commentI
                             <span>{item.comment}</span>
                         </Link>
                     </p>
+                    :null
                 ))}
                 <p className="text-gray-500 uppercase text-xs mt-2">
                     {formatDistance(posted, new Date())} ago
