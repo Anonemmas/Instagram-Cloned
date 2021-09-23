@@ -1,14 +1,14 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import Drizzy from "../../images/Drizzy.jpg"
+import NoImage from "../../images/No-Image.jpg"
 
 const User = ({username, fullName}) => (
        (
         <Link className="grid grid-cols-4 gap-4 mb-4 items-center sticky top-0.5" to={`/p/${username}`}>
             <div className="flex items-center justify-between col-span-1">
                 <img
-                    className="rounded-full w-16 flex mr-3"
-                    src={Drizzy}
+                    className="rounded-full w-16 flex mr-3 object-cover"
+                    src={NoImage}
                     alt="My profile"
                 />
             </div>

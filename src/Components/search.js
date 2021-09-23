@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react"
 import { Link } from "react-router-dom"
 import { getAllUsers } from "../services/Firebase"
-import Drizzy from "../images/Drizzy.jpg"
+import NoImage from "../images/No-Image.jpg"
 
 export default function Search({searchRef}){
     const [profiles, setProfiles] = useState([])
@@ -55,7 +55,7 @@ export default function Search({searchRef}){
                                 grid grid-cols-3"
                                 >
                                     <div className="picture col-span-1 w-12 h-12">
-                                        <img className="rounded-full" src={Drizzy} alt={`${profile.username}`}/>
+                                        <img className="rounded-full" src={NoImage} alt={`${profile.username}`}/>
                                     </div>
                                     <div className="grid col-span-2 text-xs content-start ml-2">
                                         <span className="font-bold">{profile.username}</span>

@@ -2,7 +2,7 @@ import React, { useContext, useRef } from "react"
 import { Link } from "react-router-dom"
 import * as ROUTES from "../constants/routes"
 import { FirebaseContext } from "../context/Firebase"
-import Drizzy from "../images/Drizzy.jpg"
+import NoImage from "../images/No-Image.jpg"
 import { userContext } from "../context/userContext"
 import Search from "./search"
 import SearchIcon from '@material-ui/icons/Search'
@@ -78,8 +78,8 @@ export default function Header(props){
                         <Link to={`/p/${user.displayName}`} className="h-6">
                             <img 
                                 className="rounded-full h-full"
-                                src={Drizzy}
-                                alt="Drizzy-pic"
+                                src={NoImage}
+                                alt={`${user.displayName}`}
                             />
                         </Link>
                     </div>

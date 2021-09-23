@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from "react"
 import useUser from "../../hooks/use-User";
-import Drizzy from "../../images/Drizzy.jpg"
+import NoImage from "../../images/No-Image.jpg"
 import Skeleton from "react-loading-skeleton";
+import PopUp from "../popup";
 import {toggleFollow, isUserFollowingProfile} from "../../services/Firebase"
+import FollowingPopUp from "./following";
+import FollowersPopUp from "./followers"
 
 export default function Header({
     photosCount,
     followerCount,
     setFollowerCount,
+    followers,
     username,
     profile: { docId: profileDocId, userId: profileUserId, fullName, following }
 }){
@@ -15,6 +19,9 @@ export default function Header({
     const {user} = useUser();
     const [isFollowingProfile, setIsFollowingProfile] = useState(false);
     const activeBtnFollow = user && user.username && user.username !== username;
+
+    const [isFollowingOpen, setIsFollowingOpen] = useState(false)
+    const [isFollowersOpen, setIsFollowersOpen] = useState(false)
    
     const handleToggleFollow = async() => {
         setIsFollowingProfile(prevIsFollowingProfile => !prevIsFollowingProfile)
@@ -22,6 +29,8 @@ export default function Header({
 
         await toggleFollow(isFollowingProfile, user.docId, profileDocId, profileUserId, user.userId)
     }
+
+    console.log(following)
 
     useEffect(() => {
         const isLoggedInUserFollowingProfile = async () => {
@@ -38,9 +47,9 @@ export default function Header({
         <div className="grid grid-cols-4 md:grid-cols-3 ml-4 md:ml-0 gap-4 justify-between mt-4 mx-auto max-w-screen-lg">
             <div className="container flex justify-center">
                 <img
-                    className="rounded-full h-20 w-20 md:h-32 md:w-32 flex"
+                    className="rounded-full h-20 w-20 md:h-32 md:w-32 flex object-cover"
                     alt={`${username}`}
-                    src={Drizzy}
+                    src={NoImage}
                 />
             </div>
             <div className="flex items-center justify-initial flex-col col-span-3 md:col-span-2">
@@ -67,13 +76,25 @@ export default function Header({
                             <p className="mr-10">
                                 <span className="font-bold">{photosCount}</span> posts
                             </p>
-                            <p className="mr-10">
+                            {/* Change prev to !prev to activate the onClick */}
+                            <p onClick={() => setIsFollowersOpen(prev => prev)} className="mr-10">
                                 <span className="font-bold">{followerCount}</span> {" "}
                                 {followerCount === 1 ? "follower" : "followers"}
                             </p>
-                            <p className="mr-10">
+
+                            <FollowersPopUp followers={followers} open={isFollowersOpen} close={() => setIsFollowersOpen(false)} />
+                            
+                            {/* Change prev to !prev to activate the onClick */}
+                            <p onClick={() => setIsFollowingOpen(prev => prev)} className="mr-10">
                                 <span className="font-bold">{following.length}</span> following
                             </p>
+
+                            <FollowingPopUp
+                                open={isFollowingOpen} 
+                                close={() => setIsFollowingOpen(false)} 
+                                username={username}
+                                following={following}
+                            />
                         </>
                         
                     )}
