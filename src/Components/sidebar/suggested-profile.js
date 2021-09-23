@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom";
-import Phone from "../../images/iphone-instagram.png"
+import NoImage from "../../images/No-Image.jpg"
 import { getUserByUserId,updateUserFollowing,updateFollowedUserFollowers } from "../../services/Firebase";
 
 
@@ -20,7 +20,7 @@ export default function SuggestedProfile({ userDocId, username, profileId, userI
             <div className="flex items-center justify-between">
                 <img
                     className="rounded-full w-8 flex mr-3"
-                    src={Phone}
+                    src={NoImage}
                     alt={`Follow ${username}`}
                 />
                 <Link to={`/p/${username}`}>
