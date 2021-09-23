@@ -32,10 +32,10 @@ export default function Timeline(props){
         <div className="TimeLine w-full overflow-hidden">
             {!hasFollowing ? (
                 <>
-                    <p className="text-center text-2xl py-8">Follow people to see photos!</p>
-                    <Link to={`/p/raphael`}>
-                        <span className="text-center w-100">(Follow raphael to see pictures)</span>
-                    </Link>
+                    <p className="text-center text-2xl pt-8">Follow people to see photos!</p>
+                        <Link className="text-center w-full pb-8 text-blue-400" to={`/p/raphael`}>
+                            <span>(Follow raphael to see pictures)</span>
+                        </Link>
                 </>
                 
             ) : !photos ? (
@@ -47,11 +47,11 @@ export default function Timeline(props){
             ) : photos && photos.length > 0 ? (
                 photos.map((content) => <Post key={content.docId} content={content} />)
             ) :  <>
-                    <p className="text-center text-2xl py-8 px-4">
+                    <p className="text-center text-2xl pt-8 px-4">
                         The people you follow have no Photos yet!
                     </p>
-                    <Link to={`/p/raphael`}>
-                        <span className="text-center w-100">(Follow raphael to see pictures)</span>
+                    <Link className="text-center w-full pb-8 text-blue-400" to={`/p/raphael`}>
+                        <span >(Follow raphael to see pictures)</span>
                     </Link>
             
             </>}
